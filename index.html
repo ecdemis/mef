@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Matt and Ellie's Flog</title>
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		<script src="js/moment.js"></script>
+	</head>
+	<body>
+		<div id="timeHeader" class="time-header"></div>
+		<div class="date-centered">
+			<div id="minus-date" style="margin-right: 12px;" class="float-left plus-minus-button" onclick="changeDate('subtract');"> - </div>
+			<div id="todayDate" class="float-left"></div>
+			<div id="plus-date" style="margin-left: 12px;" class="float-left plus-minus-button" onclick="changeDate('add');"> + </div>
+		</div>
+	</body>
+
+	<script>
+		var CONSTANTS = {};
+		CONSTANTS.dateFormat = 'MMMM Do YYYY';
+		CONSTANTS.timeFormat = 'h:mm:ss A';
+
+		function time(format, element){
+			if(format === 'date'){
+				format = CONSTANTS.dateFormat;
+			}
+			if(format === 'time'){
+				format = CONSTANTS.timeFormat;
+			}
+			var time = moment().format(format); // this is today's date
+			var timeDiv = document.getElementById(element);
+			timeDiv.innerHTML = time; //setting div in html to the time
+		}
+
+		function changeDate(action){
+			var timeDiv = document.getElementById('todayDate');
+			if(action === 'add'){
+				var newDate = moment(timeDiv.innerHTML,CONSTANTS.dateFormat).add(1, 'days').format(CONSTANTS.dateFormat);
+			}
+			if(action ==='subtract'){
+				var newDate = moment(timeDiv.innerHTML,CONSTANTS.dateFormat).subtract(1, 'days').format(CONSTANTS.dateFormat);
+			}
+			timeDiv.innerHTML = newDate;
+		}
+
+		time('date', 'todayDate'); // shows time in header
+		setInterval(time, 1000, 'time', 'timeHeader'); //shows time in left corner
+		//var time = setInterval(time, 1000); //syntax with function without parameters	
+	</script>
+</html>

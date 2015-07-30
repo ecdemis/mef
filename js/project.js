@@ -6,7 +6,7 @@ $scope.time = time('date');
 
 
 var CONSTANTS = {};
-CONSTANTS.dateFormat = 'MMMM Do YYYY';ss
+CONSTANTS.dateFormat = 'MMMM Do YYYY';
 CONSTANTS.timeFormat = 'h:mm:ss A';
 
 function time(format){

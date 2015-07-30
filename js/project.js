@@ -2,8 +2,22 @@ angular.module('project', [])
   .controller('projectController', function($scope) {
 
 $scope.name = "ellie";
+$scope.time = time('date');
 
 
+var CONSTANTS = {};
+CONSTANTS.dateFormat = 'MMMM Do YYYY';ss
+CONSTANTS.timeFormat = 'h:mm:ss A';
+
+function time(format){
+  if(format === 'date'){
+    format = CONSTANTS.dateFormat;
+  }
+  if(format === 'time'){
+    format = CONSTANTS.timeFormat;
+  }
+  var time = moment().format(format); // this is today's date
+  }
 
 
     // var todoList = this;

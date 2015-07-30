@@ -11,15 +11,12 @@
 		<div id="timeHeader" class="time-header"></div>
 		<div class="date-centered">
 			<div id="minus-date" style="margin-right: 12px;" class="float-left plus-minus-button" onclick="changeDate('subtract');"> - </div>
-			<div id="todayDate" class="float-left"></div>
+			<div class="float-left">{{time}}</div>
 			<div id="plus-date" style="margin-left: 12px;" class="float-left plus-minus-button" onclick="changeDate('add');"> + </div>
 		</div>
 	</body>
 
 	<script>
-		var CONSTANTS = {};
-		CONSTANTS.dateFormat = 'MMMM Do YYYY';
-		CONSTANTS.timeFormat = 'h:mm:ss A';
 
 		function time(format, element){
 			if(format === 'date'){
@@ -44,7 +41,7 @@
 			timeDiv.innerHTML = newDate;
 		}
 
-		time('date', 'todayDate'); // shows time in header
+		// time('date', 'todayDate'); // shows time in header
 		setInterval(time, 1000, 'time', 'timeHeader'); //shows time in left corner
 		//var time = setInterval(time, 1000); //syntax with function without parameters	
 	</script>

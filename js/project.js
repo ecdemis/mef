@@ -1,7 +1,7 @@
 angular.module('project', [])
   .controller('projectController', function($scope) {
 
-
+$scope.name = "ellie";
 
 
 
